@@ -1,66 +1,40 @@
 package Objetos.Ejercicio2;
 
 public class Cuenta {
-    private double dinero;
+
     private int ingresosTotales;
-    private int retirosTotales;
+    private int reintegrosTotales;
+    private double saldoInicial;
 
-    public Cuenta() {
-        dinero = 300;
-        ingresosTotales = 0;
-        retirosTotales = 0;
-    }
-
-    public void setDinero(double dinero) {
-        this.dinero = dinero;
-    }
-
-    public double getDinero() {
-        return dinero;
-    }
 
     public int getIngresosTotales() {
         return ingresosTotales;
     }
 
-    public int getRetirosTotales() {
-        return retirosTotales;
+    public void setIngresosTotales(int ingresosTotales) {
+        this.ingresosTotales = ingresosTotales;
     }
 
-
-    public double retirarDinero(double retiro) {
-        double dineroResultante;
-
-        System.out.println("Tienes " + dinero + "€ y se ha retirado un total de " + retiro + "€");
-
-        dineroResultante = getDinero() - retiro;
-        setDinero(dineroResultante);
-
-        retirosTotales++;
-
-        System.out.println("Saldo resultante: " + dineroResultante + "€");
-        return dineroResultante;
-    }
-    public double ingresoDinero(double ingreso) {
-        double dineroResultante;
-
-        System.out.println("Tienes " + dinero + "€ y se ha ingresado un total de " + ingreso + "€");
-
-        dineroResultante = getDinero() + ingreso;
-        setDinero(dineroResultante);
-
-        ingresosTotales++;
-
-        System.out.println("Saldo resultante: " + dineroResultante + "€");
-        return dineroResultante;
+    public int getReintegrosTotales() {
+        return reintegrosTotales;
     }
 
-    public int ingresosTotales(){
-        return ingresosTotales;
-    }
-    public int retirosTotales(){
-        return retirosTotales;
+    public void setReintegrosTotales(int reintegrosTotales) {
+        this.reintegrosTotales = reintegrosTotales;
     }
 
+    public double getSaldoInicial(double dinero) {
+        return saldoInicial + dinero;
+    }
+
+    public void setSaldoInicial(double saldoInicial) {
+        this.saldoInicial = saldoInicial;
+    }
+
+    public Cuenta(){
+        ingresosTotales = 0;
+        reintegrosTotales = 0;
+        saldoInicial = 30000;
+    }
 
 }
