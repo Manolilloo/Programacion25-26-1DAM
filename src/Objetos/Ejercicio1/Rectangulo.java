@@ -17,7 +17,7 @@ public class Rectangulo {
         if (longitud > 0 && longitud < 20) {
             this.longitud = longitud;
         } else {
-            System.out.println("Error. Numero no valido");
+            System.out.println("Error. Numero no válido");
         }
     }
 
@@ -29,7 +29,7 @@ public class Rectangulo {
         if (ancho > 0 && ancho < 20) {
             this.ancho = ancho;
         } else {
-            System.out.println("Error. Numero no valido");
+            System.out.println("Error. Número no válido");
         }
     }
 
