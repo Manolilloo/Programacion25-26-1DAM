@@ -4,7 +4,7 @@ public class Cuenta {
 
     private int ingresosTotales;
     private int reintegrosTotales;
-    private double saldoInicial;
+    private double saldo;
 
 
     public int getIngresosTotales() {
@@ -23,18 +23,18 @@ public class Cuenta {
         this.reintegrosTotales = reintegrosTotales;
     }
 
-    public double getSaldoInicial(double dinero) {
-        return saldoInicial + dinero;
+    public double getSaldo(double dinero) {
+        return saldo + dinero;
     }
 
-    public void setSaldoInicial(double saldoInicial) {
-        this.saldoInicial = saldoInicial;
+    public double setSaldo(double saldo) {
+        this.saldo = saldo;
+        return saldo;
     }
 
     public Cuenta(){
         ingresosTotales = 0;
         reintegrosTotales = 0;
-        saldoInicial = 30000;
+        saldo = 0;
     }
-
 }
