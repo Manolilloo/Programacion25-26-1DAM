@@ -16,7 +16,7 @@ public class Principal {
         System.out.println("Bienvenido al cajero!");
 
         while (activo) {
-            System.out.println("Ingresa una opción:\n\n1) RETIRAR DINERO.\n2) INGRESAR DINERO.\n3) VER OPERACIONES.\n4) Finalizar la operación.\n--> ");
+            System.out.println("Ingresa una opción:\n\n1) RETIRAR DINERO.\n2) INGRESAR DINERO.\n3) VER OPERACIONES.\n4) Finalizar la operación.\n👇 ");
 
             int opcion = sc.nextInt();
             double retirar = 0;
@@ -30,12 +30,15 @@ public class Principal {
                         System.out.println("No puedes retirar dinero porque no puedes retirar 0€.");
                     } else if (dinero > 0) {
                         dinero -= retirar;
-                        System.out.println("Retiraste " + dinero + " €");
+                        System.out.println("Retiraste " + retirar + "€");
                         c.setReintegrosTotales(c.getReintegrosTotales() + 1);
+                    } else if (retirar == 0) {
+                        System.out.println("No puedes sacar nada, vuelve a intentar: ");
+                        retirar = sc.nextDouble();
                     }
                     break;
 
-                case 2:
+                case 2: //Esto que he hecho son básicamente los ingresos que hace el usuario
                     System.out.println("¿Cuánto quieres ingresar?");
                     ingresar = sc.nextDouble();
 
@@ -57,7 +60,7 @@ public class Principal {
 
                     break;
 
-                case 3:
+                case 3: //Estas son las operaciones hasta ahora
                     System.out.println("=================================================");
                     System.out.println("Saldo actual: " + dinero);
                     System.out.println("Reintegros actuales: " + c.getReintegrosTotales());
@@ -66,7 +69,7 @@ public class Principal {
 
                     break;
 
-                case 4:
+                case 4:     //Para salir del cajero
 
                     System.out.println("¿Desea salir?  (S/N)");
                     String respuesta = sc.next().toUpperCase();
