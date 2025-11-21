@@ -1,5 +1,8 @@
 package Objetos.Ejercicio3;
 
+import Objetos.Ejercicio3.Exceptions.CafeEX;
+
+import java.time.MonthDay;
 import java.util.Scanner;
 
 public class MaquinaCafe {
@@ -10,7 +13,7 @@ public class MaquinaCafe {
 
     Scanner sc = new Scanner(System.in);
 
-    public MaquinaCafe() {
+    public MaquinaCafe() throws CafeEX {
         this.depCafe = 50;
         this.depLeche = 50;
         this.depVasos = 80;
@@ -19,66 +22,56 @@ public class MaquinaCafe {
     }
 
 
-    public void servirCafe(double dinero) {
+    public void servirCafe() throws CafeEX {
         int precioCafe = 1;
-        if (dinero == precioCafe) {
+        if (monedero >= precioCafe) {
             depCafe--;
             depVasos--;
-            System.out.println("Gracias por tu compra!");
-            System.out.println("Quedan " + depCafe + " depósitos de café\ny " + depVasos + " vasos.");
-        } else if (dinero > precioCafe) {
-            depCafe--;
-            depVasos--;
-            dinero -= precioCafe;
-            System.out.println("Gracias por tu compra!");
-            System.out.println("Quedan " + depCafe + " depósitos de café.");
-        }
-        while (dinero < precioCafe) {
-            System.out.println("El dinero que has introducido no llega al precio\nindicado. Vuelve a intentarlo: ");
-            dinero = sc.nextDouble();
+            monedero -= precioCafe;
+            monedero = (double) Math.round(monedero * 10) / 10;
+            throw new CafeEX("Gracias por la compra.");
+        } else if (monedero < precioCafe) {
+            throw new CafeEX("⛔El dinero que has introducido no llega al precio indicado.⛔");
+        } else if (depCafe < 0 || depVasos < 0) {
+            throw new CafeEX("Faltan depósitos...");
         }
     }
 
-    public void servirLeche(double dinero) {
+    public void servirLeche() throws CafeEX {
         double precioLeche = 0.8;
-        if (dinero == precioLeche) {
+        if (monedero >= precioLeche) {
             depCafe--;
             depVasos--;
-            System.out.println("Gracias por tu compra!");
-        } else if (dinero > precioLeche) {
-            depCafe--;
-            depVasos--;
-            dinero -= precioLeche;
-            System.out.println("Gracias por tu compra!");
-        }
-        while (dinero < precioLeche) {
-            System.out.println("El dinero que has introducido no llega al precio\nindicado. Vuelve a intentarlo: ");
-            dinero = sc.nextDouble();
+            monedero -= precioLeche;
+            monedero = (double) Math.round(monedero * 10) / 10;
+            throw new CafeEX("Gracias por tu compra!");
+        } else if (monedero < precioLeche) {
+            throw new CafeEX("⛔El dinero que has introducido no llega al precio indicado.⛔");
+        } else if (depLeche < 0 || depVasos < 0) {
+            throw new CafeEX("Faltan depósitos...");
         }
     }
 
-    public void servirCafeConLeche(double dinero) {
+    public void servirCafeConLeche() throws CafeEX {
         double precioCafeConLeche = 1.5;
-        if (dinero == precioCafeConLeche) {
+        if (monedero >= precioCafeConLeche) {
             depCafe--;
             depLeche--;
             depVasos--;
-            System.out.println("Gracias por la compra!");
-        } else if (dinero > precioCafeConLeche) {
-            dinero -= precioCafeConLeche;
-            depCafe--;
-            depLeche--;
-            depVasos--;
-            System.out.println("Gracias por la compra!");
+            monedero -= precioCafeConLeche;
+            monedero = (double) Math.round(monedero * 10) / 10;
+            throw new CafeEX("Gracias por tu compra!");
+        } else if (monedero < precioCafeConLeche) {
+            throw new CafeEX("⛔El dinero que has introducido no llega al precio indicado.⛔");
+        } else if (depCafe < 0 || depLeche < 0 || depVasos < 0) {
+            throw new CafeEX("Faltan depósitos...");
         }
-        while (dinero < precioCafeConLeche) {
-            System.out.println("El dinero que has introducido no llega al precio\nindicado. Vuelve a intentarlo: ");
-            dinero = sc.nextDouble();
-        }
+
+
     }
 
-    public void consultarEstado(){
-        toString();
+    public String consultarEstado() {
+        return toString();
     }
 
     public int getDepCafe() {
@@ -93,7 +86,7 @@ public class MaquinaCafe {
         return depVasos;
     }
 
-    public double getMonedero(int dinero) {
+    public double getMonedero() {
         return monedero;
     }
 
@@ -103,11 +96,12 @@ public class MaquinaCafe {
 
     @Override
     public String toString() {
-        return "MaquinaCafe{" +
-                "Depositos de cafe = " + depCafe +
-                ", Depositos de leche = " + depLeche +
-                ", Depositos de vasos = " + depVasos +
-                ", Monedero actual = " + monedero +
-                '}';
+        return "========================================" +
+                "\nMaquinaCafe:" +
+                "\n☕Depositos de cafe = " + depCafe +
+                "\n🥛Depositos de leche = " + depLeche +
+                "\n🫗Depositos de vasos = " + depVasos +
+                "\n👛Monedero actual = " + monedero +
+                "\n========================================";
     }
 }
