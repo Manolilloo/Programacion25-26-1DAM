@@ -5,6 +5,8 @@
 
 package Objetos.Ejercicio4;
 
+import Objetos.Ejercicio4.Exceptions.PExcepcion;
+
 import java.rmi.AlreadyBoundException;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -19,7 +21,7 @@ public class Persona {
 
     Scanner sc = new Scanner(System.in);
 
-    public Persona() {
+    public Persona() throws PExcepcion {
     }
 
     public int getDniNoLetra() {
@@ -65,12 +67,7 @@ public class Persona {
     }
 
     public void setSexo(char sexo) {
-        if (sexo == 'H' || sexo == 'M') {
-            this.sexo = sexo;
-        } else {
-            System.out.println("Sexo no válido, se establece H por defecto.");
-            this.sexo = 'H';
-        }
+
     }
 
 
@@ -90,7 +87,7 @@ public class Persona {
         this.peso = peso;
     }
 
-    public void pedirInfoUsuario() {
+    public void pedirInfoUsuario() throws PExcepcion {
         System.out.println("Introduzca el nombre: ");
         nombre = sc.nextLine();
         setNombre(nombre);
@@ -127,8 +124,8 @@ public class Persona {
                 "\nFecha de Nacimiento = " + getFechaNacimiento() +
                 "\nDni = " + dniEntero() +
                 "\nSexo = " + getSexo() +
-                "\nAltura = " + getAltura() +
-                "\nPeso = " + getPeso() +
+                "\nAltura = " + getAltura() + " m" +
+                "\nPeso = " + getPeso() + " kg" +
                 "\nIMC = " + getIMC() +
                 "\n====================================";
     }
