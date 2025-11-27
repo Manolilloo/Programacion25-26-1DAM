@@ -6,19 +6,19 @@
 package Objetos.EjercicioProducto;
 
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
 import java.util.random.RandomGenerator;
 
 public class Producto {
-    private int CODIGO = 123129;
+    private int CODIGO;
     private String descripcion = "Jamon para Bermudo";
-    private static double iva;
-    private double precio = 999.999;
+    private static double iva = 0.2;
+    private double precio = 99.999;
 
-    public Producto(double precio, int CODIGO, String descripcion, double iva) {
+    public Producto(double precio, int CODIGO, String descripcion) {
         this.CODIGO = CODIGO;
         this.descripcion = descripcion;
-        this.precio = precio;
-        this.iva = 0.2;
+        this.precio = precio * iva;
     }
 
     public double getCODIGO() {
@@ -33,8 +33,9 @@ public class Producto {
         System.out.println(toString());
     }
 
+
     public void modificarAtributos(int CODIGO, String descripcion, double precio) {
-        System.out.println("El nuevo código es: " + CODIGO + "\nLa nueva descripción es: " + descripcion +"\nEl nuevo precio es: "+precio);
+        System.out.println("El nuevo código es: " + CODIGO + "\nLa nueva descripción es: " + descripcion + "\nEl nuevo precio es: " + precio);
     }
 
     public void setDescripcion(String descripcion) {
@@ -51,10 +52,10 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
-                "CODIGO=" + CODIGO +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                '}';
+        return "====Producto====" +
+                "\nPrecio: " + precio + "€" +
+                "\nCódigo del producto: " + CODIGO +
+                "\nDescripción producto: " + descripcion;
+
     }
 }
