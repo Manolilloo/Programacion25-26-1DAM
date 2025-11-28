@@ -5,24 +5,20 @@
 
 package Objetos.EjercicioProducto;
 
-import java.util.Random;
-import java.util.concurrent.CompletableFuture;
-import java.util.random.RandomGenerator;
-
 public class Producto {
-    private int CODIGO;
+    private int codigo;
     private String descripcion = "Jamon para Bermudo";
     private static double iva = 0.2;
     private double precio = 99.999;
 
-    public Producto(double precio, int CODIGO, String descripcion) {
-        this.CODIGO = CODIGO;
+    public Producto(double precio, int codigo, String descripcion) {
+        this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio * iva;
     }
 
-    public double getCODIGO() {
-        return CODIGO;
+    public double getCodigo() {
+        return codigo;
     }
 
     public String getDescripcion() {
@@ -54,7 +50,7 @@ public class Producto {
     public String toString() {
         return "====Producto====" +
                 "\nPrecio: " + precio + "€" +
-                "\nCódigo del producto: " + CODIGO +
+                "\nCódigo del producto: " + codigo +
                 "\nDescripción producto: " + descripcion;
 
     }

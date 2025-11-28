@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Main {
     static void main(String[] args) {
-        Producto p = new Producto(99.999 ,9834934, "Jamon para Bermudo bellota 5J");
+        Producto p = new Producto(99.999, 9834934, "Jamon para Bermudo bellota 5J");
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Estas en el Mercadona...");
@@ -58,6 +58,5 @@ public class Main {
                     System.out.println("Cagada monumental, vaya mierda\nde vida que tienes...");
             }
         }
-
     }
 }
