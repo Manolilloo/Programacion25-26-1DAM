@@ -7,12 +7,7 @@ package Objetos.EjercicioCartas;
 
 public class Carta {
     private String palo;
-    private int numero;
-
-    public Carta(String palo, int numero) {
-        this.palo = palo;
-        this.numero = numero;
-    }
+    private String numero;
 
     public String getPalo() {
         return palo;
@@ -22,19 +17,21 @@ public class Carta {
         this.palo = palo;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public Carta(String palo, String numero) {
+        this.palo = palo;
         this.numero = numero;
     }
 
     @Override
     public String toString() {
-        return "Carta{" +
-                "palo='" + palo + '\'' +
-                ", numero=" + numero +
-                '}';
+        return numero + " de " + palo;
     }
 }
