@@ -9,10 +9,13 @@ import java.util.Scanner;
 public class Ejercicio1 {
     static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Introduce una palabra: ");
-        String palabra = sc.nextLine();
+        String palabra = sc.nextLine().toLowerCase();
+
         System.out.println("Introduce una letra que quieras comprobar si se repite: ");
-        char letra = sc.nextLine().charAt(0);
+        char letra = sc.nextLine().toLowerCase().charAt(0);
+
         contadorRepetidos(palabra, letra);
         System.out.println("La letra se ha repetido "+contadorRepetidos(palabra, letra)+" veces.");
 
