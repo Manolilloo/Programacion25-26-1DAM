@@ -2,3 +2,6 @@ Hola. Esta es la primera primera línea
 de un fichero
 que tiene algunas
 líneas más.
+as
+asd
+ad

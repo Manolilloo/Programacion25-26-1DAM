@@ -33,15 +33,6 @@ public class Ejercicio2 {
              *System.out.println("Habia " + br.lines().count() + " lineas");
              */
 
-            /**
-             * Forma 3:
-             *  Path p = Paths.get("./src/filepruebas/leeme.txt");
-             *  System.out.println(p.getNameCount());
-             */
-
-
-
-
 
         } catch (IOException e){
             System.out.println(e.getMessage());
