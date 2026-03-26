@@ -6,7 +6,7 @@
 
 package ExamenColecciones2022;
 
-import ExamenColecciones2022.exceptions.MazoException;
+import ExamenColecciones2022.filepruebas.ej6.exceptions.MazoException;
 
 import java.util.ArrayList;
 import java.util.List;

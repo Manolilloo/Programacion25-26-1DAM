@@ -55,7 +55,7 @@ public class Juego {
 
 
     public static void main(String[] args) {
-        // Puedes utilizar la clase MiEntradaSalida, que viviría en el paquete io
+        // Puedes utilizar la clase MiEntradaSalida, que viviría en el paquete filepruebas.ej6.io
         Scanner scanner = new Scanner(System.in);
         boolean jugando = true;
 

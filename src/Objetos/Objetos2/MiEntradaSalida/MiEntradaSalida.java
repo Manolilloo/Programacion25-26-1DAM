@@ -8,7 +8,7 @@ package Objetos.Objetos2.MiEntradaSalida;
 import java.util.Scanner;
 
 public class MiEntradaSalida {
-    static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
 
     public static int solicitarEntero(String mensaje) {
