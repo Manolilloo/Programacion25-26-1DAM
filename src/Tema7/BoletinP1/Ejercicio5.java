@@ -27,7 +27,7 @@ public class Ejercicio5 {
             switch (opcion) {
                 case 1:
                     System.out.print("Dime el nombre de la nueva carpeta: ");
-                    Path rutaDir = Paths.get(sc.nextLine());
+                    Path rutaDir = Paths.get("C:\\Users\\mdema\\IdeaProjects\\Programacion25-26-1DAM\\src\\Tema7\\BoletinP1", sc.nextLine());
                     try {
                         Files.createDirectory(rutaDir);
                         System.out.println("¡Carpeta creada con éxito!");
@@ -40,7 +40,7 @@ public class Ejercicio5 {
 
                 case 2:
                     System.out.print("Dime el nombre del nuevo archivo (ej: texto.txt): ");
-                    Path rutaFich = Paths.get(sc.nextLine());
+                    Path rutaFich = Paths.get("C:\\Users\\mdema\\IdeaProjects\\Programacion25-26-1DAM\\src\\Tema7\\BoletinP1", sc.nextLine());
                     System.out.print("Escribe el texto que quieres meter dentro: ");
                     String texto = sc.nextLine();
 
@@ -69,22 +69,19 @@ public class Ejercicio5 {
                     break;
 
                 case 4:
-                    System.out.print("Dime el nombre de la carpeta que quieres cotillear: ");
-                    Path rutaCarpeta = Paths.get(sc.nextLine());
+                    System.out.print("Dime el nombre o ruta a la carpeta que quieres cotillear: ");
+                    Path rutaCarpeta = Paths.get("C:\\Users\\mdema\\IdeaProjects\\Programacion25-26-1DAM\\src", sc.nextLine());
 
                     // Como Files.list abre un flujo, necesita su try-with-resources
-                    try (Stream<Path> archivos = Files.list(rutaCarpeta)) {
-                        System.out.println("\nContenido de la carpeta:");
-                        // Recorremos el Stream y filtramos para que solo muestre archivos, no subcarpetas
+                    try (Stream<Path> archivos = Files.list(rutaCarpeta)){
                         archivos.filter(Files::isRegularFile)
-                                .sorted() // Los ordenamos por nombre
-                                .forEach(archivo -> System.out.println("- " + archivo.getFileName()));
-                    } catch (NoSuchFileException e) {
-                        System.out.println("Error: Esa carpeta no existe.");
+                                .sorted()
+                                .forEach(archivo -> {
+                                    System.out.println("- " + archivo.getFileName());
+                                });
                     } catch (IOException e) {
-                        System.out.println("Error al leer la carpeta.");
+                        System.out.println("Error al leer el archivo.");
                     }
-                    break;
 
                 case 5:
                     System.out.println("¡Saliendo del programa! Hasta luego.");
